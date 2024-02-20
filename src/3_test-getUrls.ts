@@ -1,5 +1,8 @@
 /**
- * Implement the function that will query the URLs and return an array of responses ['url1_answer', 'url2_answer', ...] in the shortest possible time.
+ * Implement the function that will query the URLs 
+ * and return an array of responses ['url1_answer', 'url2_answer', ...] 
+ * in the shortest possible time.
+ * 
  * At any given time, no more than [limit] requests can be executed.
  * Use the asyncFetch function as a replacement for fetch.
  */
