@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /*
     The task is to remove from the object tree all nodes
     where the Alive property is false. However, if a node
@@ -10,7 +11,7 @@
     the advantages and disadvantages of each approach.
 */
 /** Base node item class */
-import { nodeCleaner } from "./4_test_nodesCleaner";
+import { nodeCleaner } from './4_test_nodesCleaner';
 
 export class NodeItemWithUtils {
   constructor(
@@ -21,7 +22,7 @@ export class NodeItemWithUtils {
   ) {}
 
   AliveToString() {
-    return this.alive ? "T" : "F";
+    return this.alive ? 'T' : 'F';
   }
 
   T() {
@@ -33,10 +34,8 @@ export class NodeItemWithUtils {
   }
 
   private CreateChild = (parent: NodeItemWithUtils, alive: boolean) => {
-    var child = new NodeItemWithUtils(
-      (parent.children.length > 0
-        ? parent.children[parent.children.length - 1].id
-        : parent.id * 10) + 1,
+    const child = new NodeItemWithUtils(
+      (parent.children.length > 0 ? parent.children[parent.children.length - 1].id : parent.id * 10) + 1,
       alive,
       [],
       parent
@@ -50,18 +49,16 @@ export class NodeItemWithUtils {
 const getPadding = (count: number) => {
   const array: string[] = [];
   for (let i = 0; i <= count - 1; i++) {
-    array[i] = "-";
+    array[i] = '-';
   }
-  return array.join("");
+  return array.join('');
 };
 
 const stringifyNode = (node: NodeItemWithUtils, level = 0): string => {
   return (
     `${getPadding(level)}${node.AliveToString()}${node.id}` +
-    "\n" +
-    (node.children.length > 0
-      ? node.children.map((child) => stringifyNode(child, level + 1)).join("")
-      : "")
+    '\n' +
+    (node.children.length > 0 ? node.children.map((child) => stringifyNode(child, level + 1)).join('') : '')
   );
 };
 
@@ -69,10 +66,10 @@ const stringifyNode = (node: NodeItemWithUtils, level = 0): string => {
 const runTests = () => {
   const formatExpected = (str: string) =>
     str
-      .split("\n")
+      .split('\n')
       .filter((x) => x.length !== 0)
       .map((x) => x.trim())
-      .join("\n");
+      .join('\n');
 
   /** TEST 1 */
   (() => {
@@ -101,10 +98,7 @@ const runTests = () => {
     -F14
     --T141`;
 
-    console.log(
-      "4_test_nodesCleaner.ts Test 1: ",
-      treeAsString === formatExpected(expectedTree)
-    );
+    console.log('4_test_nodesCleaner.ts Test 1: ', treeAsString === formatExpected(expectedTree));
   })();
 
   /** TEST 2 */
@@ -123,10 +117,7 @@ const runTests = () => {
     -F12
     --T121
     ---F1211`;
-    console.log(
-      "4_test_nodesCleaner.ts Test 2: ",
-      treeAsString === formatExpected(expectedTree)
-    );
+    console.log('4_test_nodesCleaner.ts Test 2: ', treeAsString === formatExpected(expectedTree));
   })();
 
   /** TEST 3 */
@@ -139,7 +130,7 @@ const runTests = () => {
     root.F().T().T();
     root.F().F().T();
     root.F().F().F();
-    var l11 = root.F();
+    const l11 = root.F();
     l11.F();
     l11.T();
     l11.F().F();
@@ -147,7 +138,7 @@ const runTests = () => {
     l11.T().F();
     l11.T().T();
 
-    var l12 = root.T();
+    const l12 = root.T();
     l12.F();
     l12.T();
     l12.F().F();
@@ -195,15 +186,14 @@ const runTests = () => {
     ---F1851
     --T186
     ---T1861`;
-    console.log(
-      "4_test_nodesCleaner.ts Test 3: ",
-      treeAsString === formatExpected(expectedTree)
-    );
+    const passed = treeAsString === formatExpected(expectedTree);
+    console.log('4_test_nodesCleaner.ts Test 3: ', passed ? 'success' : 'fail');
   })();
 };
 
 export default runTests;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const helper = `
       F           F
      / \         /
