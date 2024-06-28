@@ -8,15 +8,19 @@
  * Use the asyncFetch function as a replacement for fetch.
  */
 
-type Props<T, R> = {
-  callback: (args: T) => Promise<R>;
-  data: Array<T>;
+type Props<RequestData, Response> = {
+  callback: (args: RequestData) => Promise<Response>;
+  data: Array<RequestData>;
   limit: number;
 };
 /**               Решение задачи                */
-export function runWithLimit<T, R>({ callback, data, limit }: Props<T, R>): Promise<R[]> {
-  const result: R[] = [];
-  // /** START SOLUTION HERE */
+export function runWithLimit<RequestData, Response>({
+  callback,
+  data,
+  limit,
+}: Props<RequestData, Response>): Promise<Response[]> {
+  /** START SOLUTION HERE */
+  const result: Response[] = [];
 
   return Promise.resolve(result);
 }
