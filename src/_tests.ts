@@ -35,7 +35,9 @@ export class NodeItemWithUtils {
 
   private CreateChild = (parent: NodeItemWithUtils, alive: boolean) => {
     const child = new NodeItemWithUtils(
-      (parent.children.length > 0 ? parent.children[parent.children.length - 1].id : parent.id * 10) + 1,
+      (parent.children.length > 0
+        ? parent.children[parent.children.length - 1].id
+        : parent.id * 10) + 1,
       alive,
       [],
       parent
@@ -58,7 +60,9 @@ const stringifyNode = (node: NodeItemWithUtils, level = 0): string => {
   return (
     `${getPadding(level)}${node.AliveToString()}${node.id}` +
     '\n' +
-    (node.children.length > 0 ? node.children.map((child) => stringifyNode(child, level + 1)).join('') : '')
+    (node.children.length > 0
+      ? node.children.map((child) => stringifyNode(child, level + 1)).join('')
+      : '')
   );
 };
 

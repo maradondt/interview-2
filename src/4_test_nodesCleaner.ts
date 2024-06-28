@@ -10,10 +10,10 @@
     the advantages and disadvantages of each approach.
 */
 
-import { NodeItemWithUtils } from "./tests";
+import { BaseNode } from './tests';
 
 /** SOLUTION */
-class NodeItem extends NodeItemWithUtils {
+class NodeItem extends BaseNode {
   constructor(
     public id: number,
     public alive: boolean,

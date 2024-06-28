@@ -2,10 +2,11 @@ import './styles.css';
 import './App.css';
 
 // import "./1_test-nonRepeating.ts";
+// import Timer from './2_test-timer-component';
 import './3_test-getUrls.ts';
 import './4_test_nodesCleaner.ts';
-import runTests from './tests';
-// import Timer from './2_test-timer-component';
+
+import { testRunWithLimit, runTestsNodeCleaner } from './tests';
 
 /**      Others      */
 // import "./tree";
@@ -18,7 +19,8 @@ export default function App() {
       {/* <Timer /> */}
       {/* <Container /> */}
       {/* <LifeCycle /> */}
-      <button onClick={() => runTests()}>Run task_4 tests</button>
+      <button onClick={() => testRunWithLimit()}>Run task_3 tests</button>
+      <button onClick={() => runTestsNodeCleaner()}>Run task_4 tests</button>
     </div>
   );
 }
