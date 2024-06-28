@@ -1,4 +1,4 @@
-/* eslint-disable no-useless-escape */
+/* eslint-disable */
 /*
     The task is to remove from the object tree all nodes
     where the Alive property is false. However, if a node
@@ -193,7 +193,6 @@ const runTests = () => {
 
 export default runTests;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const helper = `
       F           F
      / \         /

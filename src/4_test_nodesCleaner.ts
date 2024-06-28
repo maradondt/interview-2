@@ -10,16 +10,11 @@
     the advantages and disadvantages of each approach.
 */
 
-import { NodeItemWithUtils } from "./tests";
+import { NodeItemWithUtils } from './tests';
 
 /** SOLUTION */
 class NodeItem extends NodeItemWithUtils {
-  constructor(
-    public id: number,
-    public alive: boolean,
-    public children: NodeItem[],
-    public parent?: NodeItem
-  ) {
+  constructor(public id: number, public alive: boolean, public children: NodeItem[], public parent?: NodeItem) {
     super(id, alive, children, parent);
   }
 }

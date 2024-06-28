@@ -20,13 +20,12 @@ const asyncFetch = (url: string) =>
   });
 
 const urlsToFetch = Array(30)
-  .fill((i: number) => `/${i}/aadt`)
-  .map((fn, index) => fn(index));
+  .fill((i: number): string => `/${i}/aadt`)
+  .map((fn: (i: number) => string, index) => fn(index));
 
 /**               Решение задачи                */
-const paralellUploading = (urls: string[], parallelLimit: number): Promise<ResponseDataType[]> => {
+const paralellUploading = (urls: string[], parallelLimit: number) => {
   /** START SOLUTION HERE */
-
   return Promise.resolve([]);
 };
 
