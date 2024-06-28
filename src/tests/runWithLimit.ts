@@ -28,7 +28,11 @@ export const testRunWithLimit = async () => {
   });
   //
   await testCase('runWithLimit', async () => {
-    const result = await runWithLimit({ callback: asyncFetch, data: urlsToFetch, limit: 3 });
+    const start = Date.now();
+    const LIMIT = 3;
+    const result = await runWithLimit({ callback: asyncFetch, data: urlsToFetch, limit: LIMIT });
+    const end = Date.now();
+    const executionTime = end - start;
 
     logResult('result length', {
       expected: urlsToFetch.length,
@@ -39,6 +43,15 @@ export const testRunWithLimit = async () => {
       expected: urlsToFetch.map((str) => `result${str}`),
       result: result.map(({ data }) => data),
     });
+    const delay = result.reduce((acc, { delay }) => acc + delay, 0) / LIMIT;
+    logResult(
+      'result arr',
+      {
+        expected: executionTime,
+        result: delay,
+      },
+      (ex, res) => ex >= res
+    );
   });
   //
   await testCase('error', async () => {

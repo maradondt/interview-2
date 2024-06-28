@@ -22,5 +22,5 @@ export function runWithLimit<RequestData, Response>({
   /** START SOLUTION HERE */
   const result: Response[] = [];
 
-  return Promise.all(data.map(callback));
+  return Promise.resolve([]);
 }
