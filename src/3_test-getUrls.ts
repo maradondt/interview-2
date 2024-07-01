@@ -5,7 +5,6 @@
  * but no more than [limit] requests can be executed concurrently.
  * The goal is to minimize the total execution time.
  *
- * Use the asyncFetch function as a replacement for fetch.
  */
 
 type Props<RequestData, Response> = {
